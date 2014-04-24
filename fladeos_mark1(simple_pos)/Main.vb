@@ -1,5 +1,4 @@
-﻿Imports System.Data.SqlClient
-Imports MySql.Data.MySqlClient
+﻿Imports MySql.Data.MySqlClient
 
 Public Class Main
 
@@ -12,30 +11,7 @@ Public Class Main
     End Sub
 
     Public Sub menu_list()
-        'Call Koneksi.koneksiku()
-        'data = New DataSet
-
-        '' siapkan data adapter untuk data retrieval
-        'Dim da As New SqlDataAdapter("select nama_produk from sic_produk")
-        '' siapkan datatable untuk menampung data dari database
-        'Dim dt As New DataTable
-        '' enclose in try-catch block
-        '' untuk menghindari crash jika terjadi kesalahan database
-        'Try
-        '    ' ambil data dari database
-        '    da.Fill(dt)
-        '    ' bind data ke combobox
-        '    Me.cmbItemTransact.DataSource = dt
-        '    Me.cmbItemTransact.ValueMember = "nama_produk"
-        '    Me.cmbItemTransact.DisplayMember = "Nama Produk"
-        '    ' DONE!!!
-        'Catch ex As Exception
-        '    MsgBox(ex.ToString())
-        'End Try
-
         Try
-
-        
         Call Koneksi.koneksiku()
         Dim myQuery As String = "select nama_produk from sic_produk"
         Dim myAdapter As New MySqlDataAdapter(myQuery, Database)
