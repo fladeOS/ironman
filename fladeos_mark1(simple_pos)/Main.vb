@@ -1,5 +1,8 @@
 ﻿Imports MySql.Data.MySqlClient
 
+'Siapkan variabel array untuk menampung data transaksi sementara
+
+
 Public Class Main
 
     Private Sub btnItemBaru_Click(sender As Object, e As EventArgs) Handles btnItemBaru.Click
@@ -27,7 +30,28 @@ Public Class Main
         End Try
     End Sub
 
+    Public Sub harga()
+        Try
+            Call Koneksi.koneksiku()
+            Dim myQuery As String = "SELECT harga from sic_produk where nama_produk = '" & Me.cmbItemTransact.Text & "'"
+            Tampilkan = New MySqlCommand(myQuery, Database)
+            Dim na As String = Tampilkan.ExecuteScalar()
+            Me.txtHargaTransact.Text = na
+        Catch ex As Exception
+            MsgBox(ex.ToString())
+        End Try
+    End Sub
+
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Call menu_list()
     End Sub
+
+    Private Sub btnTambahTransact_Click(sender As Object, e As EventArgs) Handles btnTambahTransact.Click
+
+    End Sub
+
+    Private Sub txtJumlahItemTransact_Click(sender As Object, e As EventArgs) Handles txtJumlahItemTransact.Click
+        Call harga()
+    End Sub
+
 End Class
