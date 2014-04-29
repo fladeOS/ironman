@@ -55,6 +55,8 @@ Partial Class Main
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.pnlLeftBottom = New System.Windows.Forms.Panel()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.txtJumlahTotal = New System.Windows.Forms.TextBox()
         Me.gridTransact = New System.Windows.Forms.DataGridView()
         Me.pnlLeft = New System.Windows.Forms.Panel()
         Me.gridResume = New System.Windows.Forms.DataGridView()
@@ -144,7 +146,7 @@ Partial Class Main
         Me.SplitContainer1.Panel2.BackColor = System.Drawing.Color.White
         Me.SplitContainer1.Panel2.Controls.Add(Me.pnlLeft)
         Me.SplitContainer1.Size = New System.Drawing.Size(1356, 712)
-        Me.SplitContainer1.SplitterDistance = 648
+        Me.SplitContainer1.SplitterDistance = 595
         Me.SplitContainer1.TabIndex = 0
         '
         'pnlMainLeft
@@ -153,7 +155,7 @@ Partial Class Main
         Me.pnlMainLeft.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlMainLeft.Location = New System.Drawing.Point(0, 0)
         Me.pnlMainLeft.Name = "pnlMainLeft"
-        Me.pnlMainLeft.Size = New System.Drawing.Size(648, 712)
+        Me.pnlMainLeft.Size = New System.Drawing.Size(595, 712)
         Me.pnlMainLeft.TabIndex = 0
         '
         'SplitContainer2
@@ -171,7 +173,7 @@ Partial Class Main
         '
         Me.SplitContainer2.Panel2.BackColor = System.Drawing.SystemColors.Control
         Me.SplitContainer2.Panel2.Controls.Add(Me.pnlLeftBottom)
-        Me.SplitContainer2.Size = New System.Drawing.Size(648, 712)
+        Me.SplitContainer2.Size = New System.Drawing.Size(595, 712)
         Me.SplitContainer2.SplitterDistance = 303
         Me.SplitContainer2.TabIndex = 0
         '
@@ -191,13 +193,13 @@ Partial Class Main
         Me.pnlLeftTop.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlLeftTop.Location = New System.Drawing.Point(0, 0)
         Me.pnlLeftTop.Name = "pnlLeftTop"
-        Me.pnlLeftTop.Size = New System.Drawing.Size(648, 303)
+        Me.pnlLeftTop.Size = New System.Drawing.Size(595, 303)
         Me.pnlLeftTop.TabIndex = 0
         '
         'btnTambahTransact
         '
         Me.btnTambahTransact.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnTambahTransact.Location = New System.Drawing.Point(285, 237)
+        Me.btnTambahTransact.Location = New System.Drawing.Point(215, 237)
         Me.btnTambahTransact.Name = "btnTambahTransact"
         Me.btnTambahTransact.Size = New System.Drawing.Size(136, 27)
         Me.btnTambahTransact.TabIndex = 4
@@ -211,7 +213,7 @@ Partial Class Main
         Me.GroupBox1.Controls.Add(Me.btnEdit)
         Me.GroupBox1.Controls.Add(Me.btnItemBaru)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(436, 69)
+        Me.GroupBox1.Location = New System.Drawing.Point(371, 69)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(200, 195)
         Me.GroupBox1.TabIndex = 1
@@ -260,7 +262,7 @@ Partial Class Main
         Me.txtTotalTransact.Location = New System.Drawing.Point(148, 199)
         Me.txtTotalTransact.Name = "txtTotalTransact"
         Me.txtTotalTransact.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.txtTotalTransact.Size = New System.Drawing.Size(273, 26)
+        Me.txtTotalTransact.Size = New System.Drawing.Size(203, 26)
         Me.txtTotalTransact.TabIndex = 26
         '
         'txtHargaTransact
@@ -269,7 +271,7 @@ Partial Class Main
         Me.txtHargaTransact.Location = New System.Drawing.Point(148, 155)
         Me.txtHargaTransact.Name = "txtHargaTransact"
         Me.txtHargaTransact.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.txtHargaTransact.Size = New System.Drawing.Size(273, 26)
+        Me.txtHargaTransact.Size = New System.Drawing.Size(203, 26)
         Me.txtHargaTransact.TabIndex = 25
         '
         'txtJumlahItemTransact
@@ -278,7 +280,7 @@ Partial Class Main
         Me.txtJumlahItemTransact.Location = New System.Drawing.Point(148, 113)
         Me.txtJumlahItemTransact.Name = "txtJumlahItemTransact"
         Me.txtJumlahItemTransact.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.txtJumlahItemTransact.Size = New System.Drawing.Size(100, 26)
+        Me.txtJumlahItemTransact.Size = New System.Drawing.Size(74, 26)
         Me.txtJumlahItemTransact.TabIndex = 24
         '
         'cmbItemTransact
@@ -288,7 +290,7 @@ Partial Class Main
         Me.cmbItemTransact.Location = New System.Drawing.Point(148, 69)
         Me.cmbItemTransact.Name = "cmbItemTransact"
         Me.cmbItemTransact.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.cmbItemTransact.Size = New System.Drawing.Size(273, 28)
+        Me.cmbItemTransact.Size = New System.Drawing.Size(203, 28)
         Me.cmbItemTransact.TabIndex = 23
         '
         'Label5
@@ -343,12 +345,32 @@ Partial Class Main
         '
         'pnlLeftBottom
         '
+        Me.pnlLeftBottom.Controls.Add(Me.Label6)
+        Me.pnlLeftBottom.Controls.Add(Me.txtJumlahTotal)
         Me.pnlLeftBottom.Controls.Add(Me.gridTransact)
         Me.pnlLeftBottom.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlLeftBottom.Location = New System.Drawing.Point(0, 0)
         Me.pnlLeftBottom.Name = "pnlLeftBottom"
-        Me.pnlLeftBottom.Size = New System.Drawing.Size(648, 405)
+        Me.pnlLeftBottom.Size = New System.Drawing.Size(595, 405)
         Me.pnlLeftBottom.TabIndex = 0
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(341, 358)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(80, 31)
+        Me.Label6.TabIndex = 2
+        Me.Label6.Text = "Total"
+        '
+        'txtJumlahTotal
+        '
+        Me.txtJumlahTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtJumlahTotal.Location = New System.Drawing.Point(446, 358)
+        Me.txtJumlahTotal.Name = "txtJumlahTotal"
+        Me.txtJumlahTotal.Size = New System.Drawing.Size(190, 35)
+        Me.txtJumlahTotal.TabIndex = 1
         '
         'gridTransact
         '
@@ -370,7 +392,7 @@ Partial Class Main
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.gridTransact.DefaultCellStyle = DataGridViewCellStyle2
-        Me.gridTransact.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.gridTransact.Dock = System.Windows.Forms.DockStyle.Top
         Me.gridTransact.Location = New System.Drawing.Point(0, 0)
         Me.gridTransact.Name = "gridTransact"
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
@@ -381,7 +403,7 @@ Partial Class Main
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.gridTransact.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
-        Me.gridTransact.Size = New System.Drawing.Size(648, 405)
+        Me.gridTransact.Size = New System.Drawing.Size(595, 346)
         Me.gridTransact.TabIndex = 0
         '
         'pnlLeft
@@ -391,7 +413,7 @@ Partial Class Main
         Me.pnlLeft.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlLeft.Location = New System.Drawing.Point(0, 0)
         Me.pnlLeft.Name = "pnlLeft"
-        Me.pnlLeft.Size = New System.Drawing.Size(704, 712)
+        Me.pnlLeft.Size = New System.Drawing.Size(757, 712)
         Me.pnlLeft.TabIndex = 1
         '
         'gridResume
@@ -426,7 +448,7 @@ Partial Class Main
         DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.gridResume.RowHeadersDefaultCellStyle = DataGridViewCellStyle6
-        Me.gridResume.Size = New System.Drawing.Size(704, 712)
+        Me.gridResume.Size = New System.Drawing.Size(757, 712)
         Me.gridResume.TabIndex = 0
         '
         'Main
@@ -458,6 +480,7 @@ Partial Class Main
         Me.pnlLeftTop.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.pnlLeftBottom.ResumeLayout(False)
+        Me.pnlLeftBottom.PerformLayout()
         CType(Me.gridTransact, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlLeft.ResumeLayout(False)
         CType(Me.gridResume, System.ComponentModel.ISupportInitialize).EndInit()
@@ -495,5 +518,7 @@ Partial Class Main
     Friend WithEvents gridTransact As System.Windows.Forms.DataGridView
     Friend WithEvents pnlLeft As System.Windows.Forms.Panel
     Friend WithEvents gridResume As System.Windows.Forms.DataGridView
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents txtJumlahTotal As System.Windows.Forms.TextBox
 
 End Class

@@ -3,7 +3,7 @@
 Public Class Main
 
     '//buat array untuk menampung data transaksi
-    Dim dataTransaksi()()
+    Dim dataTransaksi(2) As Transaksi
 
     Private Sub btnItemBaru_Click(sender As Object, e As EventArgs) Handles btnItemBaru.Click
         form_add_item.Show()
@@ -12,6 +12,9 @@ Public Class Main
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
         End
     End Sub
+
+
+#Region "Function Logic Hitung"
 
     Public Sub menu_list()
         Try
@@ -57,42 +60,34 @@ Public Class Main
         End If
     End Sub
 
-    Public Sub record_transaksi()
+    Public Sub add_transaksi()
         Try
-            data = New DataSet
-            Me.gridTransact.DataSource = dataTransaksi
-            Me.gridTransact.Columns(0).HeaderText = "Nama Menu"
-            Me.gridTransact.Columns(1).HeaderText = "Jumlah Menu"
-            Me.gridTransact.Columns(2).HeaderText = "Menu"
-            Me.gridTransact.Columns(3).HeaderText = "Nama Menu"
+            Dim indeks As Integer = 0
+            dataTransaksi(indeks) = New Transaksi(Me.cmbItemTransact.Text, Me.txtJumlahItemTransact.Text, Me.txtHargaTransact.Text, Me.txtTotalTransact.Text)
+            gridTransact.DataSource = dataTransaksi
+
+            gridTransact.Columns(0).Width = 200
+            gridTransact.Columns(1).Width = 75
+            gridTransact.Columns(2).Width = 140
+            gridTransact.Columns(3).Width = 140
+            gridTransact.Columns(0).HeaderText = "Nama Menu"
+            gridTransact.Columns(1).HeaderText = "Banyaknya"
+            gridTransact.Columns(2).HeaderText = "Harga Satuan"
+            gridTransact.Columns(3).HeaderText = "Harga Total"
         Catch ex As Exception
             MsgBox(ex.ToString())
         End Try
     End Sub
 
-    Public Sub add_data_transact()
+#End Region
 
-        Try
-            Dim baris = 0
-            dataTransaksi(baris)(0) = "Menu 1"
-            dataTransaksi(baris)(1) = "Menu 2"
-            dataTransaksi(baris)(2) = "Menu 3"
-            dataTransaksi(baris)(3) = "Menu 4"
-
-            baris = baris + 1
-        Catch ex As Exception
-            MsgBox(ex.ToString())
-        End Try
-
-    End Sub
 
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Call menu_list()
     End Sub
 
     Private Sub btnTambahTransact_Click(sender As Object, e As EventArgs) Handles btnTambahTransact.Click
-        Call add_data_transact()
-        Call record_transaksi()
+        Call Me.add_transaksi()
     End Sub
 
 

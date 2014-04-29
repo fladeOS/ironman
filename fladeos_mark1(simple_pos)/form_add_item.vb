@@ -10,6 +10,7 @@
                 SQL.ExecuteNonQuery()
                 MessageBox.Show("Berhasil tambahkan " & txtNamaItemAdd.Text)
                 Call Record()
+                Call Main.menu_list()
                 Me.txtIDItemAdd.Text = ""
                 Me.txtNamaItemAdd.Text = ""
                 Me.txtHargaItemAdd.Text = ""
