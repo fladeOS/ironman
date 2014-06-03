@@ -25,9 +25,9 @@
     Public Sub Record()
         Try
             Call Koneksi.koneksiku()
-            data = New DataSet
-            tabel = "select * from sic_produk"
-            gridview = New MySql.Data.MySqlClient.MySqlDataAdapter(tabel, Database)
+            Dim data As New DataSet
+            Dim tabel As String = "select * from sic_produk"
+            Dim gridview As New MySql.Data.MySqlClient.MySqlDataAdapter(tabel, Database)
             gridview.Fill(data, "sic_produk")
             Dim DataGridView As New DataView(data.Tables("sic_produk"))
             Me.gridAdd.DataSource = DataGridView

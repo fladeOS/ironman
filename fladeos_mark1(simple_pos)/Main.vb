@@ -3,7 +3,8 @@
 Public Class Main
 
     '//buat array untuk menampung data transaksi
-    Dim dataTransaksi(2) As Transaksi
+    Dim indeks As Integer = 0
+    Dim dataTransaksi(100) As Transaksi
 
     Private Sub btnItemBaru_Click(sender As Object, e As EventArgs) Handles btnItemBaru.Click
         form_add_item.Show()
@@ -38,8 +39,8 @@ Public Class Main
             Try
                 Call Koneksi.koneksiku()
                 Dim myQuery As String = "SELECT harga from sic_produk where nama_produk = '" & Me.cmbItemTransact.Text & "'"
-                Tampilkan = New MySqlCommand(myQuery, Database)
-                Dim na As String = Tampilkan.ExecuteScalar()
+                SQL = New MySqlCommand(myQuery, Database)
+                Dim na As String = SQL.ExecuteScalar()
                 Me.txtHargaTransact.Text = na
             Catch ex As Exception
                 MsgBox(ex.ToString())
@@ -55,15 +56,23 @@ Public Class Main
                 MsgBox(ex.ToString())
             End Try
         ElseIf txtJumlahItemTransact.Text = vbNullString Then
-            Me.txtHargaTransact.Text = ""
-            Me.txtTotalTransact.Text = ""
+            Call Me.reset_field()
         End If
     End Sub
 
+    Public Sub isi_array()
+        dataTransaksi(0) = New Transaksi(Me.cmbItemTransact.Text, Me.txtJumlahItemTransact.Text, Me.txtHargaTransact.Text, Me.txtTotalTransact.Text)
+        dataTransaksi(1) = New Transaksi("Kopi", "2", "3000", "6000")
+        dataTransaksi(2) = New Transaksi(Me.cmbItemTransact.Text, Me.txtJumlahItemTransact.Text, Me.txtHargaTransact.Text, Me.txtTotalTransact.Text)
+        dataTransaksi(3) = New Transaksi(Me.cmbItemTransact.Text, Me.txtJumlahItemTransact.Text, Me.txtHargaTransact.Text, Me.txtTotalTransact.Text)
+
+        
+        indeks = indeks + 1
+    End Sub
+
+
     Public Sub add_transaksi()
         Try
-            Dim indeks As Integer = 0
-            dataTransaksi(indeks) = New Transaksi(Me.cmbItemTransact.Text, Me.txtJumlahItemTransact.Text, Me.txtHargaTransact.Text, Me.txtTotalTransact.Text)
             gridTransact.DataSource = dataTransaksi
 
             gridTransact.Columns(0).Width = 200
@@ -74,9 +83,17 @@ Public Class Main
             gridTransact.Columns(1).HeaderText = "Banyaknya"
             gridTransact.Columns(2).HeaderText = "Harga Satuan"
             gridTransact.Columns(3).HeaderText = "Harga Total"
+
+
         Catch ex As Exception
             MsgBox(ex.ToString())
         End Try
+    End Sub
+
+    Public Sub reset_field()
+        Me.txtJumlahItemTransact.Text = ""
+        Me.txtHargaTransact.Text = ""
+        Me.txtTotalTransact.Text = ""
     End Sub
 
 #End Region
@@ -87,7 +104,10 @@ Public Class Main
     End Sub
 
     Private Sub btnTambahTransact_Click(sender As Object, e As EventArgs) Handles btnTambahTransact.Click
+        Call Me.isi_array()
         Call Me.add_transaksi()
+        Call Me.reset_field()
+        Me.txtJumlahTotal.Text = indeks
     End Sub
 
 
@@ -97,6 +117,6 @@ Public Class Main
     End Sub
 
     Private Sub cmbItemTransact_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbItemTransact.SelectedIndexChanged
-        '// new VB
+
     End Sub
 End Class
